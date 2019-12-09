@@ -1,0 +1,51 @@
+<% include partials/header %>
+    
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+        <a class="navbar-brand" href="/">Confer</a>
+    
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mx-auto">
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="/preprocess">Preprocess</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/compare">Compare</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="/paint">Paint</a>
+                </li>
+            </ul>
+        </div>
+        <!-- <ul class="navbar-nav navbar-right">
+            <a class="nav-link" href="/logout">Logout</a>
+        </ul> -->
+    </nav> 
+    
+    
+    <div class="container">
+        <header class="jumbotron">
+            <div class="container text-center">
+                <h1>Paint</h1>
+            </div>
+        </header>
+       
+        <div>
+            <input class="felnos"  id= "colour" type="color" oninput="colourChange()" list="presetColors">
+            <datalist id="presetColors">
+                <option value="#111111">#111111</option>
+                <option value="#FF0000">#FF0000</option>
+                <option value="#26A65B">#26A65B</option>
+                <option value="#9370B7">#9B59B6</option>
+                <option value="#FFA400">#f6b73c</option>
+            </datalist>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col"><p><%-editedSentences.strikeAnalyst%></p></div>
+            <div id ="approverOutput" class="col"><p><%-editedSentences.italicsApprover%></p></div>
+        </div>
+     </div>
+
+     <script type="text/javascript" src="./approver.js"></script>
+<% include partials/footer %>

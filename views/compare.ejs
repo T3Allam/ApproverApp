@@ -1,0 +1,63 @@
+<% include partials/header %>
+    
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+        <a class="navbar-brand" href="/">Confer</a>
+    
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/preprocess">Preprocess</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="/compare">Compare</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/paint">Paint</a>
+                </li>
+            </ul>
+        </div>
+        <!-- <ul class="navbar-nav navbar-right">
+            <a class="nav-link" href="/logout">Logout</a>
+        </ul> -->
+    </nav> 
+    
+    <div class="container">
+        <header class="jumbotron">
+            <div class="container text-center">
+                <h1>Preprocessed Abstracts</h1>
+            </div>
+        </header>
+            <% if(error && error.length>0) { %>
+                <div class="alert alert-danger" role="alert">
+                    <%= error %>
+                </div>
+            <% } %>
+        </div>
+        <div class="container">
+            <form id="compare" action="/compare" method="POST">    
+                <div class="row">
+                    <textarea style="width:50%"  name="rankedAnalyst" form="compare" rows="20" required><%=rankedSentences.analyst%></textarea>
+                    <textarea style="width:50%"  name="rankedApprover" form="compare" rows="20" required><%=rankedSentences.approver%></textarea> 
+                </div>
+                <br>
+                <br>
+                    <div class="row">
+                        <div class="col-xs-6" style="width:50%">
+                            <label for="deletedSentenceRank">Did you delete any sentence(s) from the analyst's abstract? </br> Type the rank of the deleted sentence(s), seperated by a comma.</label>
+                            <input form="compare" id="deletedSentenceRank"  name="deletedSentenceRank" type="text">
+                        </div>
+                        <div class="col-xs-6" style="width:50%">
+                            <label  for="addedSentenceRank">Did you add any sentence(s) in your abstract? </br> Type the rank of the added sentence(s), seperated by a commma.</label>
+                            <input  form="compare" id="addedSentenceRank"  name="addedSentenceRank" type="text">
+                        </div>
+                    </div>
+                
+                <br>
+                <div>
+                    <button  class="btn btn-secondary btn-sm" form="compare" type="submit">Compare</button>
+                </div>
+             </form>  
+        </div>
+    </div>
+
+<% include partials/footer %>
